@@ -89,9 +89,10 @@ writeFileSync(
 );
 
 const dossierBytes = statSync(join(out, 'dossier.json')).size;
+const dashboardFiles = readdirSync(join(out, 'dashboard')).length;
 process.stdout.write(
   `token radar: ${snapshot.protocols.length} protocols, ${snapshot.watchlist.length} on the watchlist, ` +
     `${board.length} rows scored (${radar.early_size} early, ${radar.live_size} live set aside)\n` +
-    `token radar: wrote board.json, data.js, dashboard (${3} files), screenshots (${shots.length} images), ` +
+    `token radar: wrote board.json, data.js, dashboard (${dashboardFiles} files), screenshots (${shots.length} images), ` +
     `dossier.json (${dossierBytes} bytes)\n`,
 );
